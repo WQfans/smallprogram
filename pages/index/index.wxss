@@ -1,0 +1,28 @@
+/**index.wxss**/
+.wrapper {
+  text-align: center;
+  height: 100%;
+}
+.background-img{
+  width: 100%;
+}
+.menu-contain{
+  width: 25%;
+  float: left;
+}
+.menu-font{
+  font-size: 12px
+}
+.tab-font{
+  font-size: 10px;
+}
+.tab{
+  width: 33%;
+  float: left;
+  height: 80rpx;
+}
+.tab-icon{
+  width: 100rpx;
+  height: 100rpx;
+  background: url("./img/icon_tabbar.png") no-repeat 100%;
+}

@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="wrapper">
+  <view>
+    <image class="background-img" src="./img/1.jpg"></image>
+  </view>
+  <view>
+    <block wx:for="{{menu}}">
+      <view class="menu-contain">
+      <view><icon type="success" size="40" color="{{item}}"/></view>
+      <view><text class="menu-font">{{item.title}}</text></view>
+      </view>
+    </block>
+  </view>
+  <view class="usermotto">
+    <!-- <text class="user-motto">{{motto}}</text> -->
+  </view>
+</view>
