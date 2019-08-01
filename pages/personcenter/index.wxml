@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="wrapper">
+  个人中心
+</view>
