@@ -6,16 +6,16 @@ Component({
   data: {
     motto: 'Hello World',
     menu: [{
-      icon: '',
+      icon: './img/tags-fill.png',
       title: '人气新品',
     }, {
-      icon: '',
+        icon: './img/pushpin-fill.png',
       title: '本周特惠'
     }, {
-      icon: '',
+        icon: './img/fire-fill.png',
       title: '热卖产品'
     }, {
-      icon: '',
+        icon: './img/money-collect-fill.png',
       title: '组合优惠'
     }
     ],

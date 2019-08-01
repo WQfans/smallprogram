@@ -9,8 +9,16 @@
 }
 .menu-contain{
   width: 25%;
-  float: left;
+  display: inline-block;
 }
 .menu-font{
-  font-size: 12px
+  font-size: 10px;
+  display: block;
+}
+.menu-icon{
+  width: 20px;
+  height: 20px;
+  background-color: #41695e;
+  padding: 5px;
+  border-radius: 100%;
 }
