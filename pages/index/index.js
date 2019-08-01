@@ -7,28 +7,18 @@ Component({
     motto: 'Hello World',
     menu: [{
       icon: '',
-      title: '预约检修',
+      title: '人气新品',
     }, {
       icon: '',
-      title: '配件商城'
+      title: '本周特惠'
     }, {
       icon: '',
-      title: '新车快讯'
+      title: '热卖产品'
     }, {
       icon: '',
-      title: '积分兑换'
+      title: '组合优惠'
     }
     ],
-    tab:[{
-      icon:'',
-      title:'首页'
-    }, {
-        icon: '',
-        title: '我'
-      },{
-        icon: '',
-        title: '更多'
-      }],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
