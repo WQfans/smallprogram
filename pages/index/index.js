@@ -9,16 +9,22 @@ Component({
       icon: './img/tags-fill.png',
       title: '人气新品',
     }, {
-        icon: './img/pushpin-fill.png',
+      icon: './img/pushpin-fill.png',
       title: '本周特惠'
     }, {
-        icon: './img/fire-fill.png',
+      icon: './img/fire-fill.png',
       title: '热卖产品'
     }, {
-        icon: './img/money-collect-fill.png',
+      icon: './img/money-collect-fill.png',
       title: '组合优惠'
-    }
-    ],
+    }],
+    advertisement: [{
+      img: './img/advertisement1.png'
+    }, {
+      img: './img/advertisement2.jpg'
+    }, {
+      img: './img/advertisement3.png'
+    }],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')

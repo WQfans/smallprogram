@@ -6,9 +6,27 @@
   <view>
     <block wx:for="{{menu}}">
       <view class="menu-contain">
-      <view><image src="{{item.icon}}" class="menu-icon"/><text class="menu-font">{{item.title}}</text></view>
-      <view></view>
+        <view>
+          <image src="{{item.icon}}" class="menu-icon" />
+          <text class="menu-font">{{item.title}}</text>
+        </view>
+        <view></view>
       </view>
     </block>
+  </view>
+  <view class="split"></view>
+  <view class="gift-contain">
+    <view>送礼专区</view>
+    <view class="gift-small-text">送闺蜜送好友，送精选好礼</view>
+    <image src="./img/gift.png" class="gift-img" />
+  </view>
+  <view class="split"></view>
+  <view>
+    <view wx:for="{{advertisement}}">
+      <view class="advertisement">
+        <image src="{{item.img}}"></image>
+      </view>
+        <view class="split"></view>
+    </view>
   </view>
 </view>
