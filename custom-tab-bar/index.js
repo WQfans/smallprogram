@@ -5,23 +5,23 @@ Component({
     selectedColor: "#3cc51f",
     list: [{
       pagePath: "/index/index/index",
-      iconPath: "/image/icon_component.png",
-      selectedIconPath: "/image/icon_component_HL.png",
+      iconPath: "/image/shouye.png",
+      selectedIconPath: "/image/shouye-2.png",
       text: "首页"
     }, {
-        pagePath: "/index/activity/index",
-      iconPath: "/image/icon_API.png",
-      selectedIconPath: "/image/icon_API_HL.png",
-      text: "活动"
+        pagePath: "/index/kind/index",
+      iconPath: "/image/fenlei.png",
+      selectedIconPath: "/image/fenlei-2.png",
+      text: "分类"
       }, {
         pagePath: "/index/shop/index",
-        iconPath: "/image/icon_component.png",
-        selectedIconPath: "/image/icon_component_HL.png",
+        iconPath: "/image/dingdan.png",
+        selectedIconPath: "/image/dingdan-2.png",
         text: "商城"
       }, , {
         pagePath: "/index/personcenter/index",
-        iconPath: "/image/icon_component.png",
-        selectedIconPath: "/image/icon_component_HL.png",
+        iconPath: "/image/wode.png",
+        selectedIconPath: "/image/wode-2.png",
         text: "个人中心"
       },]
   },
