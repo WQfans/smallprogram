@@ -1,5 +1,20 @@
 <!--index.wxml-->
 <view class="wrapper">
+  <view class="userInfo">
+    <!-- {{vipInfo.vipLevel}} -->
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <view class="avatar-view">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      </view>
+      <view class="name-view">
+        <view class="name-view-con">
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          <text class="userinfo-vipinfo">{{vipInfo.vipLevel}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
   <view>
     <image class="background-img" src="./img/1.jpg"></image>
   </view>
@@ -26,7 +41,7 @@
       <view class="advertisement">
         <image src="{{item.img}}"></image>
       </view>
-        <view class="split"></view>
+      <view class="split"></view>
     </view>
   </view>
 </view>

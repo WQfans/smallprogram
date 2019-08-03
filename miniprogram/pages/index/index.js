@@ -26,6 +26,7 @@ Page({
     }],
     userInfo: {},
     hasUserInfo: false,
+    vipInfo:{},
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   pageLifetimes: {
@@ -39,22 +40,25 @@ Page({
     }
   },
   onLoad: function () {
-    this.getOpenid();
     // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                userInfo: res.userInfo
-              })
-            }
-          })
-        }
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+      console.log(app.globalData.userInfo)
+    } else {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+        console.log(res.userInfo)
       }
-    })
+    }
+    this.getOpenid();
   },
   getOpenid: function () {
     // 调用云函数
@@ -62,7 +66,10 @@ Page({
       name: 'login',
       data: {},
       success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
+        console.log('[云函数] [login] user openid: ', res.result)
+        this.setData({
+          vipInfo :res.result.vipInfo
+        })
         app.globalData.openid = res.result.openid
         wx.navigateTo({
           url: '../personcenter/index',

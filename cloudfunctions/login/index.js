@@ -21,9 +21,12 @@ exports.main = (event, context) => {
 
   // 获取 WX Context (微信调用上下文)，包括 OPENID、APPID、及 UNIONID（需满足 UNIONID 获取条件）
   const wxContext = cloud.getWXContext()
-
+  let vipInfo = {
+    vipLevel:'钻石'
+  }
   return {
     event,
+    vipInfo: vipInfo,
     openid: wxContext.OPENID,
     appid: wxContext.APPID,
     unionid: wxContext.UNIONID,
