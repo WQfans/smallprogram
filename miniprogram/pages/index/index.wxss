@@ -23,6 +23,7 @@
   height: 128rpx;
   margin: 10rpx;
   border-radius: 50%;
+  border: 2px solid #eeeeee;
 }
 .userinfo-nickname {
   width: 600rpx;
