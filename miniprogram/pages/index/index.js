@@ -58,6 +58,7 @@ Page({
       }
     }
     this.getOpenid();
+    this.getVipInfo();
   },
   getOpenid: function() {
     // 调用云函数
@@ -66,12 +67,27 @@ Page({
       data: {},
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result)
-        this.setData({
-          vipInfo: res.result.vipInfo
-        })
         app.globalData.openid = res.result.openid
         wx.navigateTo({
           url: '../personcenter/index',
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+        wx.navigateTo({
+          url: '../deployFunctions/deployFunctions',
+        })
+      }
+    })
+  },
+  getVipInfo:function() {
+    wx.cloud.callFunction({
+      name: 'getVipInfo',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result)
+        this.setData({
+          vipInfo: res.result.data[0].vipInfo
         })
       },
       fail: err => {
