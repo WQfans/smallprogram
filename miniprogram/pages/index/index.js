@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
   data: {
     menu: [{
@@ -26,7 +25,7 @@ Page({
     }],
     userInfo: {},
     hasUserInfo: false,
-    vipInfo:{},
+    vipInfo: {},
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   pageLifetimes: {
@@ -39,7 +38,7 @@ Page({
       }
     }
   },
-  onLoad: function () {
+  onLoad: function() {
     // 获取用户信息
     if (app.globalData.userInfo) {
       this.setData({
@@ -60,7 +59,7 @@ Page({
     }
     this.getOpenid();
   },
-  getOpenid: function () {
+  getOpenid: function() {
     // 调用云函数
     wx.cloud.callFunction({
       name: 'login',
@@ -68,7 +67,7 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result)
         this.setData({
-          vipInfo :res.result.vipInfo
+          vipInfo: res.result.vipInfo
         })
         app.globalData.openid = res.result.openid
         wx.navigateTo({
@@ -83,4 +82,16 @@ Page({
       }
     })
   },
+  clickMenu: (e) => {
+    console.log(e.currentTarget.dataset.menu);
+    wx.navigateTo({
+      url: '../link/newProduct',
+      success: function(res) {
+        // 通过eventChannel向被打开页面传送数据
+        // res.eventChannel.emit('acceptDataFromOpenerPage', {
+        //   data: 'test'
+        // })
+      }
+    })
+  }
 })

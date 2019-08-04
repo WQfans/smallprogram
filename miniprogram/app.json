@@ -3,8 +3,7 @@
     "pages/index/index",
     "pages/kind/index",
     "pages/shop/index",
-    "pages/personcenter/index",
-    "pages/logs/logs"
+    "pages/personcenter/index"
   ],
   "tabBar": {
     "list": [
