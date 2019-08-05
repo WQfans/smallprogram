@@ -6,11 +6,12 @@
   flex: 1;
 }
 .left-tab{
-  padding: 20rpx 40rpx;
+  padding: 40rpx 40rpx;
   text-align: center;
   font-size: 12px;
   background: #eeeeee;
   overflow-y: auto;
+  border-bottom: #d8d8d8 1px solid;
 }
 .left-tab.active{
   background: #fff;
