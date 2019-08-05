@@ -1,9 +1,16 @@
 <!--index.wxml-->
 <view class="wrapper">
-  <view class="weui-cells__title">输入商品名</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" auto-focus placeholder="将会获取焦点"/>
-      </view>
-    </view>
+  <view>
+    <mp-searchbar placeholder="请输入关键字搜索" bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+  </view>
+  <view class="scrollview-contain">
+    <scroll-view class="left">
+      <block wx:for="{{kind}}" wx:key="index" >
+      <view class="{{index == selectedIndex ? 'active' :'unactive' }}">{{item.title}}</view>
+      </block>
+    </scroll-view>
+    <scroll-view class="right">
+      商品
+    </scroll-view>
+  </view>
 </view>

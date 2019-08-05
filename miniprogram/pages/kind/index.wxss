@@ -1,1 +1,14 @@
-@import "../../lib/weui.wxss";
+ @import '/miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss'; 
+ .scrollview-contain{
+   display: flex
+ }
+.left{
+  flex: 1;
+}
+.left-tab{
+  padding: 20rpx 40rpx;
+  font-size: 12px;
+}
+.right{
+  flex: 3;
+}
