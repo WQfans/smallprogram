@@ -7,8 +7,19 @@
 }
 .left-tab{
   padding: 20rpx 40rpx;
+  text-align: center;
   font-size: 12px;
+  background: #eeeeee;
+  overflow-y: auto;
+}
+.left-tab.active{
+  background: #fff;
+  border-left: #41695e 8rpx solid;
 }
 .right{
   flex: 3;
+}
+
+.search-self{
+  background-color: #fff;
 }

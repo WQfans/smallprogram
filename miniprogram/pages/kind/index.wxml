@@ -1,12 +1,12 @@
 <!--index.wxml-->
 <view class="wrapper">
   <view>
-    <mp-searchbar placeholder="请输入关键字搜索" bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+    <mp-searchbar placeholder="请输入关键字搜索" bindselectresult="selectResult" search="{{search}}" ext-class='search-self'></mp-searchbar>
   </view>
   <view class="scrollview-contain">
-    <scroll-view class="left">
-      <block wx:for="{{kind}}" wx:key="index" >
-      <view class="{{index == selectedIndex ? 'active' :'unactive' }}">{{item.title}}</view>
+    <scroll-view class="left" scroll-y style="height:{{height}}">
+      <block wx:for="{{kind}}" wx:key="index">
+      <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}"  data-index="{{index}}" bindtap="switchKind">{{item.title}}</view>
       </block>
     </scroll-view>
     <scroll-view class="right">
