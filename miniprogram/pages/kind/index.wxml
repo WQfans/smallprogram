@@ -6,11 +6,34 @@
   <view class="scrollview-contain">
     <scroll-view class="left" scroll-y style="height:{{height}}">
       <block wx:for="{{kind}}" wx:key="index">
-      <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}"  data-index="{{index}}" bindtap="switchKind">{{item.title}}</view>
+        <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}" data-index="{{index}}" bindtap="switchKind">{{item.title}}</view>
       </block>
     </scroll-view>
-    <scroll-view class="right">
-      商品
+    <scroll-view class="right" scroll-y style="height:{{height}}">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item">
+              <image src="{{item}}" class="back-img"></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <block wx:for="{{goods}}" wx:key="*this">
+        <view class="good">
+          <image class='good-img' src="{{item.img}}"></image>
+          <view  class='good-title'>
+            <text>{{item.title}}</text>
+          </view>
+          <view class='good-desc'>
+            <text >{{item.desc}}</text>
+          </view>
+          <view>
+            <text>¥{{item.price}}</text>
+            <view class="plus">+</view>
+          </view>
+        </view>
+      </block>
     </scroll-view>
   </view>
 </view>
