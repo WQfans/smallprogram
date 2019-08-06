@@ -85,7 +85,7 @@ Page({
       success: res => {
         console.log(res.windowHeight)
         this.setData({
-          height: res.windowHeight - 48 + 'px'
+          height: res.windowHeight
         })
       }
     })
