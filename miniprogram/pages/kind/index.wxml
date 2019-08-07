@@ -19,21 +19,27 @@
           </swiper-item>
         </block>
       </swiper>
-      <block wx:for="{{goods}}" wx:key="*this">
-        <view class="good">
-          <image class='good-img' src="{{item.img}}"></image>
-          <view  class='good-title'>
-            <text>{{item.title}}</text>
+
+      <block wx:for="{{kind}}" wx:key="index">
+        <view class="group-title">{{item.title}}</view>
+        <block wx:for="{{item.goods}}" wx:key="*this">
+          <view class="good">
+            <image class='good-img' src="{{item.img}}"></image>
+            <view class='good-title'>
+              <text>{{item.title}}</text>
+            </view>
+            <view class='good-desc'>
+              <text>{{item.desc}}</text>
+            </view>
+            <view>
+              <text>¥{{item.price}}</text>
+              <view class="plus">+</view>
+            </view>
           </view>
-          <view class='good-desc'>
-            <text >{{item.desc}}</text>
-          </view>
-          <view>
-            <text>¥{{item.price}}</text>
-            <view class="plus">+</view>
-          </view>
-        </view>
+        </block>
       </block>
+
+
     </scroll-view>
   </view>
 </view>

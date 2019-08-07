@@ -35,9 +35,12 @@
 .search-self {
   background-color: #fff;
 }
-
+.group-title{
+  font-size: 14px; 
+  padding: 20rpx 10rpx 0 10px;
+}
 .good {
-  padding: 40rpx 10rpx;
+  padding: 20rpx 10rpx;
   /*  */
 }
 
@@ -77,3 +80,5 @@
   border-radius: 50px;
   font-size: 20px;
 }
+
+

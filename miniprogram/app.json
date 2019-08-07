@@ -21,7 +21,7 @@
       },
       {
         "pagePath": "pages/shop/index",
-        "text": "商城",
+        "text": "购物车",
         "iconPath": "/image/dingdan.png",
         "selectedIconPath": "/image/dingdan-2.png"
       },
