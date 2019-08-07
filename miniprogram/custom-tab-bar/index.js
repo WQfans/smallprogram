@@ -17,7 +17,7 @@ Component({
         pagePath: "/index/shop/index",
         iconPath: "/image/dingdan.png",
         selectedIconPath: "/image/dingdan-2.png",
-        text: "商城"
+        text: "购物车"
       }, , {
         pagePath: "/index/personcenter/index",
         iconPath: "/image/wode.png",
