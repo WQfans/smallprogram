@@ -59,6 +59,7 @@ Page({
     }
     this.getOpenid();
     this.getVipInfo();
+    this.getProducts();
   },
   getOpenid: function() {
     // 调用云函数
@@ -89,6 +90,25 @@ Page({
         this.setData({
           vipInfo: res.result.data[0].vipInfo
         })
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+        wx.navigateTo({
+          url: '../deployFunctions/deployFunctions',
+        })
+      }
+    })
+  },
+  getProducts: function () {
+    wx.cloud.callFunction({
+      name: 'getProducts',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result)
+        this.setData({
+          products: res.result.data
+        })
+        console.log('products:', res.result)
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
