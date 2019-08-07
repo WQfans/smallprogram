@@ -2,6 +2,7 @@ const weuiminiprogram = require('weui-miniprogram');
 Page({
   data: {
     selectedIndex: 0,
+    scrollKindId:'kind0',
     height: '400px',
     kind: [{
       title: '基础护理',
@@ -144,7 +145,8 @@ Page({
   switchKind(e) {
     const data = e.currentTarget.dataset
     this.setData({
-      selectedIndex: data.index
+      selectedIndex: data.index,
+      scrollKindId: 'good' + data.index
     })
   }
 })
