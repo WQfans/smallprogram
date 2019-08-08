@@ -117,7 +117,8 @@ Page({
     interval: 2000,
     duration: 500,
     previousMargin: 0,
-    nextMargin: 0
+    nextMargin: 0,
+    checkFlag:true,
   },
   pageLifetimes: {
     show() {
@@ -143,10 +144,18 @@ Page({
   },
 
   switchKind(e) {
-    const data = e.currentTarget.dataset
+    const data = e.currentTarget.dataset;
+    this.checkFlag = true;
     this.setData({
       selectedIndex: data.index,
       scrollKindId: 'good' + data.index
     })
+  },
+  bindscroll(e){
+    if (this.checkFlag){
+      this.checkFlag = false;
+      return
+    }
+    console.log(e.detail.scrollTop - 150)
   }
 })

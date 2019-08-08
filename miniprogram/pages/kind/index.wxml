@@ -9,7 +9,8 @@
         <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}" data-index="{{index}}" bindtap="switchKind">{{item.title}}</view>
       </block>
     </scroll-view>
-    <scroll-view class="right" scroll-y style="height:{{height-70}}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation>
+    <scroll-view class="right" scroll-y style="height:{{height-70}}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation
+    bindscroll="bindscroll">
       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
