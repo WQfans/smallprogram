@@ -25,7 +25,7 @@
         <view class="group-title"  id="good{{index}}">{{item.title}}</view>
         <block wx:for="{{item.goods}}" wx:key="*this">
           <view class="good">
-            <image class='good-img' src="{{item.img}}"></image>
+            <image class='good-img' src="cloud://cloudproxy-13w9u.636c-cloudproxy-13w9u-1259757619/img/product/{{item.img}}"></image>
             <view class='good-title'>
               <text>{{item.title}}</text>
             </view>

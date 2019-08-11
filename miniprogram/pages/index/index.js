@@ -17,11 +17,11 @@ Page({
       title: '组合优惠'
     }],
     advertisement: [{
-      img: './img/advertisement1.png'
+      img: 'cloud://cloudproxy-13w9u.636c-cloudproxy-13w9u-1259757619/img/index/advertisement1.png'
     }, {
-      img: './img/advertisement2.jpg'
+        img: 'cloud://cloudproxy-13w9u.636c-cloudproxy-13w9u-1259757619/img/index/advertisement2.jpg'
     }, {
-      img: './img/advertisement3.png'
+        img: 'cloud://cloudproxy-13w9u.636c-cloudproxy-13w9u-1259757619/img/index/advertisement3.png'
     }],
     userInfo: {},
     hasUserInfo: false,
