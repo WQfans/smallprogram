@@ -9,7 +9,7 @@
 }
 
 .left-tab {
-  padding: 30rpx 40rpx;
+  padding: 15px 10px;
   text-align: center;
   font-size: 12px;
   background: #f6f6f6;

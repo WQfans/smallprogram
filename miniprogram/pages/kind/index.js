@@ -192,7 +192,6 @@ Page({
       index = 0;
     }
     if (index != this.data.selectedIndex) {
-      console.log(index)
       this.setData({
         selectedIndex: index,
         scrollMenuId: `menu${index}`
