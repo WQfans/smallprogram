@@ -34,7 +34,7 @@
             </view>
             <view>
               <text>¥{{item.price}}</text>
-              <view class="plus">+</view>
+              <view class="plus" bindtap="addProductToCar" data-index="{{index}}">+</view>
             </view>
           </view>
         </block>
