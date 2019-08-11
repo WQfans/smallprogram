@@ -2,7 +2,7 @@ const weuiminiprogram = require('weui-miniprogram');
 Page({
   data: {
     selectedIndex: 0,
-    scrollKindId:'kind0',
+    scrollKindId: 'kind0',
     height: '400px',
     kind: [{
       title: '基础护理',
@@ -118,7 +118,7 @@ Page({
     duration: 500,
     previousMargin: 0,
     nextMargin: 0,
-    checkFlag:true,
+    checkFlag: true,
   },
   pageLifetimes: {
     show() {
@@ -130,7 +130,7 @@ Page({
       }
     }
   },
-  onLoad: function() {
+  onLoad: function () {
     this.getScreenHeight();
   },
   getScreenHeight() {
@@ -151,11 +151,35 @@ Page({
       scrollKindId: 'good' + data.index
     })
   },
-  bindscroll(e){
-    if (this.checkFlag){
+  bindscroll(e) {
+    if (this.checkFlag) {
       this.checkFlag = false;
       return
     }
-    console.log(e.detail.scrollTop - 150)
+    let currentScroll = e.detail.scrollTop - 150;
+    let index = this.getCurrentIndex(currentScroll);
+    if(currentScroll < 0){
+      index = 0;
+    }
+    if (index != this.data.selectedIndex) {
+      this.setData({
+        selectedIndex: index
+      })
+    }
+  },
+  //计算滚动的高度来看当前是哪一个定位的
+  getCurrentIndex(currentScroll) {
+    let currentKindIndex = 0;
+    let kind = this.data.kind;
+    let originHeight = 0;
+    for (let i = 0; i < kind.length; i++) {
+      console.log(currentScroll, i)
+      if (currentScroll >= originHeight && currentScroll <= originHeight + 100 * (kind[i].goods.length) + 40) {
+        break;
+      }
+      currentKindIndex++;
+      originHeight = originHeight + 100 * (kind[i].goods.length) + 40;
+    }
+    return currentKindIndex;
   }
 })

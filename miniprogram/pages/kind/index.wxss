@@ -37,16 +37,17 @@
 }
 .group-title{
   font-size: 14px; 
-  padding: 20rpx 10rpx 0 10px;
+  padding: 10px 10px 0 10px;
+  height: 30px;
 }
 .good {
-  padding: 20rpx 10rpx;
-  /*  */
+  padding: 10px 10px;
+  height: 80px;
 }
 
 .good-img {
-  width: 60px;
-  height: 60px;
+  width: 100rpx;
+  height: 100rpx;
   float: left;
   padding: 5px;
 }
