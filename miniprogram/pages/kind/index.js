@@ -3,6 +3,7 @@ Page({
   data: {
     selectedIndex: 0,
     scrollKindId: 'kind0',
+    scrollMenuId: 'menu0',
     height: '400px',
     kind: [{
       title: '基础护理',
@@ -107,6 +108,36 @@ Page({
         desc: '蕴含济州绿茶成分，呵护滋养双唇的润唇膏膜。',
         img: './img/good2.png',
         price: 12
+      }, {
+        title: '绿茶润唇膏',
+        desc: '蕴含济州绿茶成分，呵护滋养双唇的润唇膏膜。',
+        img: './img/good2.png',
+        price: 12
+      }, {
+        title: '绿茶润唇膏',
+        desc: '蕴含济州绿茶成分，呵护滋养双唇的润唇膏膜。',
+        img: './img/good2.png',
+        price: 12
+      }, {
+        title: '绿茶润唇膏',
+        desc: '蕴含济州绿茶成分，呵护滋养双唇的润唇膏膜。',
+        img: './img/good2.png',
+        price: 12
+      }, {
+        title: '绿茶润唇膏',
+        desc: '蕴含济州绿茶成分，呵护滋养双唇的润唇膏膜。',
+        img: './img/good2.png',
+        price: 12
+      }, {
+        title: '绿茶润唇膏',
+        desc: '蕴含济州绿茶成分，呵护滋养双唇的润唇膏膜。',
+        img: './img/good2.png',
+        price: 12
+      }, {
+        title: '绿茶润唇膏',
+        desc: '蕴含济州绿茶成分，呵护滋养双唇的润唇膏膜。',
+        img: './img/good2.png',
+        price: 12
       }]
     }],
     background: ['./img/1.jpg', './img/2.jpg', './img/3.jpg'],
@@ -130,7 +161,7 @@ Page({
       }
     }
   },
-  onLoad: function () {
+  onLoad: function() {
     this.getScreenHeight();
   },
   getScreenHeight() {
@@ -142,7 +173,6 @@ Page({
       }
     })
   },
-
   switchKind(e) {
     const data = e.currentTarget.dataset;
     this.checkFlag = true;
@@ -158,12 +188,14 @@ Page({
     }
     let currentScroll = e.detail.scrollTop - 150;
     let index = this.getCurrentIndex(currentScroll);
-    if(currentScroll < 0){
+    if (currentScroll < 0) {
       index = 0;
     }
     if (index != this.data.selectedIndex) {
+      console.log(index)
       this.setData({
-        selectedIndex: index
+        selectedIndex: index,
+        scrollMenuId: `menu${index}`
       })
     }
   },
@@ -173,7 +205,6 @@ Page({
     let kind = this.data.kind;
     let originHeight = 0;
     for (let i = 0; i < kind.length; i++) {
-      console.log(currentScroll, i)
       if (currentScroll >= originHeight && currentScroll <= originHeight + 100 * (kind[i].goods.length) + 40) {
         break;
       }
