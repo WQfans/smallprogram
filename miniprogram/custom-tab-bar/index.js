@@ -14,11 +14,6 @@ Component({
       selectedIconPath: "/image/fenlei-2.png",
       text: "分类"
       }, {
-        pagePath: "/index/shop/index",
-        iconPath: "/image/dingdan.png",
-        selectedIconPath: "/image/dingdan-2.png",
-        text: "购物车"
-      }, , {
         pagePath: "/index/personcenter/index",
         iconPath: "/image/wode.png",
         selectedIconPath: "/image/wode-2.png",

@@ -20,12 +20,6 @@
         "selectedIconPath": "/image/fenlei-2.png"
       },
       {
-        "pagePath": "pages/shop/index",
-        "text": "购物车",
-        "iconPath": "/image/dingdan.png",
-        "selectedIconPath": "/image/dingdan-2.png"
-      },
-      {
         "pagePath": "pages/personcenter/index",
         "text": "个人中心",
         "iconPath": "/image/wode.png",

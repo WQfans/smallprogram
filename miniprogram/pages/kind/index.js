@@ -99,20 +99,6 @@ Page({
     return currentKindIndex;
   },
   addProductToCar(e){
-    console.log(e)
-    wx.cloud.callFunction({
-      name: 'addProductToCar',
-      data: {
-        productId:0
-      },
-      success: res => {
-        console.log(res)
-      },
-      fail: err => {
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
-        })
-      }
-    })
+    console.log(e);
   }
 })
