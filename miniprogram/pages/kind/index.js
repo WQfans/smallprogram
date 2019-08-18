@@ -6,6 +6,7 @@ Page({
     scrollMenuId: 'menu0',
     height: '400px',
     kind: [],
+    productKind:{},
     background: ['./img/1.jpg', './img/2.jpg', './img/3.jpg'],
     indicatorDots: true,
     vertical: false,
@@ -30,6 +31,7 @@ Page({
   onLoad: function() {
     this.getScreenHeight();
     this.getProducts();
+    this.getProductKind();
   },
   getProducts: function () {
     wx.cloud.callFunction({
@@ -43,6 +45,23 @@ Page({
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
+        wx.navigateTo({
+          url: '../deployFunctions/deployFunctions',
+        })
+      }
+    })
+  },
+  getProductKind: function () {
+    wx.cloud.callFunction({
+      name: 'getProductKind',
+      data: {},
+      success: res => {
+        this.setData({
+          productKind: res.result
+        })
+        console.log('getProductKind:', res.result)
+      },
+      fail: err => {
         wx.navigateTo({
           url: '../deployFunctions/deployFunctions',
         })
@@ -89,11 +108,11 @@ Page({
     let kind = this.data.kind;
     let originHeight = 0;
     for (let i = 0; i < kind.length; i++) {
-      if (currentScroll >= originHeight && currentScroll <= originHeight + 100 * (kind[i].length) + 40) {
+      if (currentScroll >= originHeight && currentScroll <= originHeight + 100 * (kind[i].products.length) + 40) {
         break;
       }
       currentKindIndex++;
-      originHeight = originHeight + 100 * (kind[i].length) + 40;
+      originHeight = originHeight + 100 * (kind[i].products.length) + 40;
     }
     return currentKindIndex;
   },

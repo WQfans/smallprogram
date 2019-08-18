@@ -9,8 +9,11 @@ exports.main = async (event, context) => {
   return await db.collection('product').get().then(res =>{
     let groupdata = _.groupBy(res.data,'kindId')
     let resdata = [];
-    _.each(groupdata,(data,key)=>{
-      resdata.push(key);
+    _.each(groupdata,(value,key)=>{
+      let data = {};
+      data['kindId'] = key;
+      data.products = value;
+      resdata.push(data);
     })
     return resdata
   })
