@@ -36,9 +36,8 @@ Page({
       name: 'getProducts',
       data: {},
       success: res => {
-        console.log('[云函数] [login] user openid: ', res.result)
         this.setData({
-          kind: res.result.data
+          kind: res.result
         })
         console.log('products:', res.result)
       },
@@ -90,11 +89,11 @@ Page({
     let kind = this.data.kind;
     let originHeight = 0;
     for (let i = 0; i < kind.length; i++) {
-      if (currentScroll >= originHeight && currentScroll <= originHeight + 100 * (kind[i].goods.length) + 40) {
+      if (currentScroll >= originHeight && currentScroll <= originHeight + 100 * (kind[i].length) + 40) {
         break;
       }
       currentKindIndex++;
-      originHeight = originHeight + 100 * (kind[i].goods.length) + 40;
+      originHeight = originHeight + 100 * (kind[i].length) + 40;
     }
     return currentKindIndex;
   },

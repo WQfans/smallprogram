@@ -6,7 +6,7 @@
   <view class="scrollview-contain">
     <scroll-view class="left" scroll-y style="height:{{height-48}}px" scroll-into-view="{{scrollMenuId}}" scroll-with-animation>
       <block wx:for="{{kind}}" wx:key="`index">
-        <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}" data-index="{{index}}" bindtap="switchKind" id="menu{{index}}">{{item.title}}</view>
+        <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}" data-index="{{index}}" bindtap="switchKind" id="menu{{index}}">{{index}}</view>
       </block>
     </scroll-view>
     <scroll-view class="right" scroll-y style="height:{{height-70}}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation
@@ -22,12 +22,12 @@
       </swiper>
 
       <block wx:for="{{kind}}" wx:key="index">
-        <view class="group-title"  id="good{{index}}">{{item.title}}</view>
-        <block wx:for="{{item.goods}}" wx:key="*this">
+        <view class="group-title"  id="good{{index}}">{{index}}</view>
+        <block wx:for="{{item}}" wx:key="*this">
           <view class="good">
             <image class='good-img' src="cloud://cloudproxy-13w9u.636c-cloudproxy-13w9u-1259757619/img/product/{{item.img}}"></image>
             <view class='good-title'>
-              <text>{{item.title}}</text>
+              <text>{{item.name}}</text>
             </view>
             <view class='good-desc'>
               <text>{{item.desc}}</text>

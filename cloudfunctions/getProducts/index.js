@@ -7,7 +7,11 @@ const db = cloud.database()
 
 exports.main = async (event, context) => {
   return await db.collection('product').get().then(res =>{
-    let groupdata = _.groupBy(res.data,'productKind')
-    return groupdata
+    let groupdata = _.groupBy(res.data,'kindId')
+    let resdata = [];
+    _.each(groupdata,(data,key)=>{
+      resdata.push(key);
+    })
+    return resdata
   })
 }
