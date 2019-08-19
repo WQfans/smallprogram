@@ -6,6 +6,8 @@ Page({
     scrollMenuId: 'menu0',
     height: '400px',
     kind: [],
+    shopCart:{
+    },
     productKind:{},
     background: ['./img/1.jpg', './img/2.jpg', './img/3.jpg'],
     indicatorDots: true,
@@ -117,6 +119,19 @@ Page({
     return currentKindIndex;
   },
   addProductToCar(e){
-    console.log(e);
+    let addProductId = e.target.dataset.productid
+    let shopCartData = this.data.shopCart;
+    shopCartData[addProductId] = shopCartData[addProductId] ? shopCartData[addProductId] + 1 : 1
+    this.setData({
+      shopCart: shopCartData
+    })
+  },
+  minusProductToCar(e){
+    let addProductId = e.target.dataset.productid
+    let shopCartData = this.data.shopCart;
+    shopCartData[addProductId] = shopCartData[addProductId] != 0 ? shopCartData[addProductId] - 1 : 0
+    this.setData({
+      shopCart: shopCartData
+    })
   }
 })

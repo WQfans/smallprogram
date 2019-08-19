@@ -9,8 +9,7 @@
         <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}" data-index="{{index}}" bindtap="switchKind" id="menu{{index}}">{{productKind[item.kindId]}}</view>
       </block>
     </scroll-view>
-    <scroll-view class="right" scroll-y style="height:{{height-70}}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation
-    bindscroll="bindscroll">
+    <scroll-view class="right" scroll-y style="height:{{height-70}}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation bindscroll="bindscroll">
       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
@@ -22,8 +21,8 @@
       </swiper>
 
       <block wx:for="{{kind}}" wx:key="index">
-        <view class="group-title"  id="good{{index}}">{{productKind[item.kindId]}}</view>
-        <block wx:for="{{item.products}}" wx:key="*this" wx:for-item="productItem">
+        <view class="group-title" id="good{{index}}">{{productKind[item.kindId]}}</view>
+        <block wx:for="{{item.products}}" wx:key="productItem.productId" wx:for-item="productItem">
           <view class="good">
             <image class='good-img' src="cloud://cloudproxy-13w9u.636c-cloudproxy-13w9u-1259757619/img/product/{{productItem.img}}"></image>
             <view class='good-title'>
@@ -32,9 +31,11 @@
             <view class='good-desc'>
               <text>{{productItem.desc}}</text>
             </view>
-            <view>
+            <view class="shopNum">
               <text>¥{{productItem.price}}</text>
-              <view class="plus" bindtap="addProductToCar" data-index="{{index}}">+</view>
+              <view class="cricle plus" bindtap="addProductToCar" hover-class="weui-grid_active" data-productId="{{productItem.productId}}">+</view>
+              <view wx:if="{{shopCart[productItem.productId]}}" class='productCount' >{{shopCart[productItem.productId]}}</view>
+              <view  wx:if="{{shopCart[productItem.productId]}}" class="cricle minus" hover-class="weui-grid_active" bindtap="minusProductToCar" data-productId="{{productItem.productId}}">-</view>
             </view>
           </view>
         </block>
