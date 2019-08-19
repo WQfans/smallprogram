@@ -22,7 +22,7 @@
 	},
 	"appid": "wxfa96b6819c1a1f15",
 	"projectname": "miniprogram-1",
-	"libVersion": "2.5.0",
+	"libVersion": "2.6.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",

@@ -6,8 +6,8 @@ Page({
     scrollMenuId: 'menu0',
     height: '400px',
     kind: [],
-    shopCart:{
-    },
+    shopCart:{},
+    shopCartNum:0,
     productKind:{},
     background: ['./img/1.jpg', './img/2.jpg', './img/3.jpg'],
     indicatorDots: true,
@@ -34,6 +34,15 @@ Page({
     this.getScreenHeight();
     this.getProducts();
     this.getProductKind();
+  },
+  observers:{
+    'shopCart': function (shopCart){
+      let shopCartNum = 0;
+      // shopCart.each((product)=>{
+      //   shopCartNum += product
+      // })
+      console.log(shopCart)
+    }
   },
   getProducts: function () {
     wx.cloud.callFunction({
@@ -122,16 +131,28 @@ Page({
     let addProductId = e.target.dataset.productid
     let shopCartData = this.data.shopCart;
     shopCartData[addProductId] = shopCartData[addProductId] ? shopCartData[addProductId] + 1 : 1
+    let num = this.getShopCartNum(shopCartData)
     this.setData({
-      shopCart: shopCartData
+      shopCart: shopCartData,
+      shopCartNum: num
     })
+    
   },
   minusProductToCar(e){
     let addProductId = e.target.dataset.productid
     let shopCartData = this.data.shopCart;
     shopCartData[addProductId] = shopCartData[addProductId] != 0 ? shopCartData[addProductId] - 1 : 0
+    let num = this.getShopCartNum(shopCartData)
     this.setData({
-      shopCart: shopCartData
+      shopCart: shopCartData,
+      shopCartNum: num
     })
+  },
+  getShopCartNum(shopCartData){
+    let total = 0;
+    for (var i in shopCartData){
+      total += shopCartData[i]
+    }
+    return total
   }
 })

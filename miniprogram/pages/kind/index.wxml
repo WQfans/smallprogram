@@ -34,12 +34,18 @@
             <view class="shopNum">
               <text>¥{{productItem.price}}</text>
               <view class="cricle plus" bindtap="addProductToCar" hover-class="weui-grid_active" data-productId="{{productItem.productId}}">+</view>
-              <view wx:if="{{shopCart[productItem.productId]}}" class='productCount' >{{shopCart[productItem.productId]}}</view>
-              <view  wx:if="{{shopCart[productItem.productId]}}" class="cricle minus" hover-class="weui-grid_active" bindtap="minusProductToCar" data-productId="{{productItem.productId}}">-</view>
+              <view wx:if="{{shopCart[productItem.productId]}}" class='productCount'>{{shopCart[productItem.productId]}}</view>
+              <view wx:if="{{shopCart[productItem.productId]}}" class="cricle minus" hover-class="weui-grid_active" bindtap="minusProductToCar" data-productId="{{productItem.productId}}">-</view>
             </view>
           </view>
         </block>
       </block>
     </scroll-view>
   </view>
+  <block wx:if="{{shopCartNum != 0}}">
+    <view class="shopCart">
+      {{shopCartNum}}
+    </view>
+  </block>
+
 </view>
