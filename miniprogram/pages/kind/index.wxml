@@ -4,12 +4,12 @@
     <mp-searchbar placeholder="请输入关键字搜索" bindselectresult="selectResult" search="{{search}}" ext-class='search-self'></mp-searchbar>
   </view>
   <view class="scrollview-contain">
-    <scroll-view class="left" scroll-y style="height:{{height-48}}px" scroll-into-view="{{scrollMenuId}}" scroll-with-animation>
+    <scroll-view class="left" scroll-y style="height:{{shopCartNum != 0 ? height - 98 : height-48}}px" scroll-into-view="{{scrollMenuId}}" scroll-with-animation>
       <block wx:for="{{kind}}" wx:key="`index">
         <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}" data-index="{{index}}" bindtap="switchKind" id="menu{{index}}">{{productKind[item.kindId]}}</view>
       </block>
     </scroll-view>
-    <scroll-view class="right" scroll-y style="height:{{height-70}}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation bindscroll="bindscroll">
+    <scroll-view class="right" scroll-y style="height:{{shopCartNum != 0 ? height -130: height-70 }}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation bindscroll="bindscroll">
       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
@@ -33,9 +33,9 @@
             </view>
             <view class="shopNum">
               <text>¥{{productItem.price}}</text>
-              <view class="cricle plus" bindtap="addProductToCar" hover-class="weui-grid_active" data-productId="{{productItem.productId}}">+</view>
+              <view class="cricle plus" bindtap="addProductToCar" hover-class="weui-grid_active" data-productId="{{productItem.productId}}" data-price="{{productItem.price}}">+</view>
               <view wx:if="{{shopCart[productItem.productId]}}" class='productCount'>{{shopCart[productItem.productId]}}</view>
-              <view wx:if="{{shopCart[productItem.productId]}}" class="cricle minus" hover-class="weui-grid_active" bindtap="minusProductToCar" data-productId="{{productItem.productId}}">-</view>
+              <view wx:if="{{shopCart[productItem.productId]}}" class="cricle minus" hover-class="weui-grid_active" bindtap="minusProductToCar" data-productId="{{productItem.productId}}" data-price="{{productItem.price}}">-</view>
             </view>
           </view>
         </block>
@@ -44,7 +44,13 @@
   </view>
   <block wx:if="{{shopCartNum != 0}}">
     <view class="shopCart">
-      {{shopCartNum}}
+      <view class="shop-cart">
+        <view><image src="./img/shop.png" class="shop-cart-icon"></image></view>
+        <view><text>购物车</text></view>
+      </view>
+      <view class="shop-count">{{shopCartNum}}</view>
+      <view class="total-money">合计：{{shopMoney}}</view>
+      <view class="submit">下单</view>
     </view>
   </block>
 

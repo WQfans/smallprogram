@@ -4,11 +4,12 @@ Page({
     selectedIndex: 0,
     scrollKindId: 'kind0',
     scrollMenuId: 'menu0',
-    height: '400px',
+    height: '600px',
     kind: [],
-    shopCart:{},
-    shopCartNum:0,
-    productKind:{},
+    shopCart: {},
+    shopCartNum: 0,
+    shopMoney: 0,
+    productKind: {},
     background: ['./img/1.jpg', './img/2.jpg', './img/3.jpg'],
     indicatorDots: true,
     vertical: false,
@@ -30,13 +31,13 @@ Page({
       }
     }
   },
-  onLoad: function() {
+  onLoad: function () {
     this.getScreenHeight();
     this.getProducts();
     this.getProductKind();
   },
-  observers:{
-    'shopCart': function (shopCart){
+  observers: {
+    'shopCart': function (shopCart) {
       let shopCartNum = 0;
       // shopCart.each((product)=>{
       //   shopCartNum += product
@@ -127,32 +128,48 @@ Page({
     }
     return currentKindIndex;
   },
-  addProductToCar(e){
+  addProductToCar(e) {
     let addProductId = e.target.dataset.productid
+    let price = e.target.dataset.price
     let shopCartData = this.data.shopCart;
     shopCartData[addProductId] = shopCartData[addProductId] ? shopCartData[addProductId] + 1 : 1
     let num = this.getShopCartNum(shopCartData)
+    let money = this.getShopMoney(price, 'add')
+
     this.setData({
       shopCart: shopCartData,
-      shopCartNum: num
+      shopCartNum: num,
+      shopMoney: money
     })
-    
+
   },
-  minusProductToCar(e){
-    let addProductId = e.target.dataset.productid
+  minusProductToCar(e) {
+    let addProductId = e.target.dataset.productid;
+    let price = e.target.dataset.price
     let shopCartData = this.data.shopCart;
     shopCartData[addProductId] = shopCartData[addProductId] != 0 ? shopCartData[addProductId] - 1 : 0
     let num = this.getShopCartNum(shopCartData)
+    let money = this.getShopMoney(price,'minus')
     this.setData({
       shopCart: shopCartData,
-      shopCartNum: num
+      shopCartNum: num,
+      shopMoney: money
     })
   },
-  getShopCartNum(shopCartData){
+  getShopCartNum(shopCartData) {
     let total = 0;
-    for (var i in shopCartData){
+    for (var i in shopCartData) {
       total += shopCartData[i]
     }
     return total
+  },
+  getShopMoney(price,type) {
+    let money = this.data.shopMoney;
+    if(type == 'add'){
+      money += price
+    }else{
+      money -= price
+    }
+    return money
   }
 })

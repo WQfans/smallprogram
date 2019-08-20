@@ -105,7 +105,54 @@
 .shopCart{
   position: fixed;
   width: 100%;
-  background: #fff;
+  background: #f6f6f6;
   height: 50px;
   bottom: 0;
+  text-align: right;
+}
+.shop-cart{
+  position: absolute;
+  top: -3px;
+  margin-left: 20px;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  color: #41695e;
+  text-align: center;
+  font-size: 8px;
+  border-radius: 50px;
+}
+.shop-cart-icon{
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.shop-count{
+  position: relative;
+  left: 55px;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50px;
+  background: #41695e;
+}
+.total-money{
+  display: inline-block;
+  font-size: 14px;
+}
+.submit{
+  width: 50px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 2px 5px;
+  height: 20px;
+  background: #41695e;
+  color: #fff;
+  display: inline-block;
+  margin: 0 10px;
 }
