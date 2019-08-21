@@ -42,9 +42,26 @@
       </block>
     </scroll-view>
   </view>
+  <block wx:if="{{showDetail}}">
+    <view class='hide-contain'style="height: {{height}}px" bindtap='showCartDetail'> </view>
+    <view class="shop-cart-info" >
+    <view class="remove-all" bindtap='removeAllCart'>清空</view>
+    <block wx:for="{{shopCart}}">
+      <view class="cart-detail-info">
+      <view class="detail-contain">
+        <text class="cart-detail-title">{{productInfo[index]['name']}}</text>
+        <text class="cart-detail-price">¥{{productInfo[index]['price']}}</text>
+         <view class="cricle plus" bindtap="addProductToCar" hover-class="weui-grid_active" data-productId="{{productInfo[index].productId}}" data-price="{{productInfo[index].price}}">+</view>
+        <view class='productCount'>{{shopCart[productInfo[index].productId]}}</view>
+        <view class="cricle minus" hover-class="weui-grid_active" bindtap="minusProductToCar" data-productId="{{productInfo[index].productId}}" data-price="{{productInfo[index].price}}">-</view>
+        </view>
+      </view>
+    </block>
+    </view>
+  </block>
   <block wx:if="{{shopCartNum != 0}}">
     <view class="shopCart">
-      <view class="shop-cart">
+      <view class="shop-cart" bindtap='showCartDetail'>
         <view><image src="./img/shop.png" class="shop-cart-icon"></image></view>
         <view><text>购物车</text></view>
       </view>

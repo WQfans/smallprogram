@@ -6,10 +6,12 @@ Page({
     scrollMenuId: 'menu0',
     height: '600px',
     kind: [],
+    showDetail:false,
     shopCart: {},
     shopCartNum: 0,
     shopMoney: 0,
     productKind: {},
+    productInfo:[],
     background: ['./img/1.jpg', './img/2.jpg', './img/3.jpg'],
     indicatorDots: true,
     vertical: false,
@@ -36,24 +38,23 @@ Page({
     this.getProducts();
     this.getProductKind();
   },
-  observers: {
-    'shopCart': function (shopCart) {
-      let shopCartNum = 0;
-      // shopCart.each((product)=>{
-      //   shopCartNum += product
-      // })
-      console.log(shopCart)
-    }
-  },
   getProducts: function () {
     wx.cloud.callFunction({
       name: 'getProducts',
       data: {},
       success: res => {
-        this.setData({
-          kind: res.result
-        })
         console.log('products:', res.result)
+        let productInfo = {}
+        for(let kindindex =0 ;kindindex < res.result.length;kindindex++){
+          let products = res.result[kindindex].products
+          for (let i = 0; i < products.length;i++){
+            productInfo[products[i].productId] = products[i]
+          }
+        }
+        this.setData({
+          kind: res.result,
+          productInfo: productInfo
+        })
       },
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
@@ -148,13 +149,26 @@ Page({
     let price = e.target.dataset.price
     let shopCartData = this.data.shopCart;
     shopCartData[addProductId] = shopCartData[addProductId] != 0 ? shopCartData[addProductId] - 1 : 0
+    if (shopCartData[addProductId] == 0){
+      delete shopCartData[addProductId]
+    }
     let num = this.getShopCartNum(shopCartData)
     let money = this.getShopMoney(price,'minus')
-    this.setData({
-      shopCart: shopCartData,
-      shopCartNum: num,
-      shopMoney: money
-    })
+    if(num > 0){
+      this.setData({
+        shopCart: shopCartData,
+        shopCartNum: num,
+        shopMoney: money
+      })
+    }else{
+      this.setData({
+        shopCart: {},
+        shopCartNum: 0,
+        shopMoney: 0,
+        showDetail: false
+      })
+    }
+
   },
   getShopCartNum(shopCartData) {
     let total = 0;
@@ -171,5 +185,19 @@ Page({
       money -= price
     }
     return money
+  },
+  showCartDetail(){
+    let show = this.data.showDetail;
+    this.setData({
+      showDetail: !show
+    })
+  },
+  removeAllCart(){
+    this.setData({
+      shopCart: {},
+      shopCartNum: 0,
+      shopMoney: 0,
+      showDetail:false
+    })
   }
 })
