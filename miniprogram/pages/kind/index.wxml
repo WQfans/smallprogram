@@ -9,7 +9,7 @@
         <view class="left-tab {{index == selectedIndex ? 'active' :'unactive' }}" data-index="{{index}}" bindtap="switchKind" id="menu{{index}}">{{productKind[item.kindId]}}</view>
       </block>
     </scroll-view>
-    <scroll-view class="right" scroll-y style="height:{{shopCartNum != 0 ? height -130: height-70 }}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation bindscroll="bindscroll">
+    <scroll-view class="right" scroll-y style="height:{{shopCartNum != 0 ? height -110: height-70 }}px" scroll-into-view="{{scrollKindId}}" scroll-with-animation bindscroll="bindscroll">
       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
@@ -67,7 +67,7 @@
       </view>
       <view class="shop-count">{{shopCartNum}}</view>
       <view class="total-money">合计：{{shopMoney}}</view>
-      <view class="submit">下单</view>
+      <view class="submit" bindtap="submitMoney">下单</view>
     </view>
   </block>
 
