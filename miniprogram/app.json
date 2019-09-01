@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/personcenter/index",
     "pages/kind/index",
     "pages/index/index",
-    "pages/shop/index",
-    "pages/personcenter/index"
+    "pages/shop/index"
   ],
   "tabBar": {
     "list": [

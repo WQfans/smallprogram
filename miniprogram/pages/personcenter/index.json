@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "测试",
-  "usingComponents": {}
+  "usingComponents": {},
+  "backgroundColor": "#eeeeee"
 }
