@@ -8,13 +8,6 @@
   background: #fff;
 }
 
-.my-service{
-  margin-top: 10px;
-  background: #fff;
-  height: 300px;
-  font-size: 12px;
-}
-
 .userinfo-view{
   padding-top: 30px;
   text-align: center;
@@ -32,4 +25,15 @@
 .my-card-choose{
   text-align: center;
   font-size: 12px;
+}
+
+.my-service{
+  margin-top: 10px;
+  background: #fff;
+  height: 300px;
+  font-size: 12px;
+}
+.service-title{
+  border-left: 3px solid #41695e;
+  padding-left: 10px;
 }
