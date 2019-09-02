@@ -1,16 +1,35 @@
 .page{
   background: #eeeeee;
-  height: 500px;
   padding: 10px;
 }
 .my-page-card{
-  height: 200px;
+  height: 180px;
   border-radius: 10px;
   background: #fff;
 }
 
 .my-service{
-  margin-top: 20px;
+  margin-top: 10px;
   background: #fff;
   height: 300px;
+  font-size: 12px;
+}
+
+.userinfo-view{
+  padding-top: 30px;
+  text-align: center;
+}
+.userinfo-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+  position: relative;
+}
+.name-view{
+  font-size: 14px;
+}
+.my-card-choose{
+  text-align: center;
+  font-size: 12px;
 }

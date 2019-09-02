@@ -1,7 +1,16 @@
-<view class="page" style="height:{{height}}px">
+<view class="page" style="height:{{height - 20}}px">
   <view class="my-page-card">
-  <view></view>
+    <view class="userinfo-view">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <view class="name-view">
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view>
+    </view>
+    <view class="my-card-choose">
+      券 积分商城 礼品卡
+    </view>
   </view>
   <view class="my-service">
+    <view class="service-title">我的服务</view>
   </view>
 </view>
