@@ -2,7 +2,32 @@
 const app = getApp()
 Page({
   data: {
-    userInfo:{},
+    userInfo: {},
+    menu: [{
+      title: '我的订单',
+      icon: ''
+    }, {
+      title: '收货地址',
+      icon: ''
+    }, {
+      title: '我的资料',
+      icon: ''
+    }, {
+      title: '送他心意',
+      icon: ''
+    }, {
+      title: '我的商城',
+      icon: ''
+    }, {
+      title: '企业采购',
+      icon: ''
+    }, {
+      title: '帮助中心',
+      icon: ''
+    }, {
+      title: '关于',
+      icon: ''
+    }],
     height: '600px',
     hasUserInfo: false,
   },
@@ -28,7 +53,7 @@ Page({
     }
   },
   getScreenHeight() {
-      wx.getSystemInfo({
+    wx.getSystemInfo({
       success: res => {
         this.setData({
           height: res.windowHeight
