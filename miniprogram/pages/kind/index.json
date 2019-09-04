@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "测试",
+  "navigationBarTitleText": "分类",
   "usingComponents": {
     "mp-searchbar": "/miniprogram_npm/weui-miniprogram/searchbar/searchbar"
   }

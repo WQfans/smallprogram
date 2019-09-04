@@ -5,28 +5,28 @@ Page({
     userInfo: {},
     menu: [{
       title: '我的订单',
-      icon: ''
+      icon: './img/copy.png'
     }, {
       title: '收货地址',
-      icon: ''
+      icon: './img/location_fill.png'
     }, {
       title: '我的资料',
-      icon: ''
+      icon: './img/people_fill.png'
     }, {
       title: '送他心意',
-      icon: ''
+      icon: './img/present_fill.png'
     }, {
       title: '我的商城',
-      icon: ''
+      icon: './img/shop_fill.png'
     }, {
       title: '企业采购',
-      icon: ''
+      icon: './img/qi.png'
     }, {
       title: '帮助中心',
-      icon: ''
+      icon: './img/ask.png'
     }, {
       title: '关于',
-      icon: ''
+      icon: './img/about.png'
     }],
     height: '600px',
     hasUserInfo: false,
