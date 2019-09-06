@@ -8,7 +8,8 @@ Page({
       icon: './img/copy.png'
     }, {
       title: '收货地址',
-      icon: './img/location_fill.png'
+      icon: './img/location_fill.png',
+        url:'../personlocation/index'
     }, {
       title: '我的资料',
       icon: './img/people_fill.png'
@@ -60,5 +61,16 @@ Page({
         })
       }
     })
+  },
+  clickServiceMenu(e){
+    console.log(e.currentTarget.dataset)
+    let url = e.currentTarget.dataset.menu.url
+    if (url){
+      wx.navigateTo({
+        url: url,
+        success: function (res) {
+        }
+      })
+    }
   }
 });
