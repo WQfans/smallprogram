@@ -1,4 +1,10 @@
 <!--index.wxml-->
 <view class="wrapper">
-  添加收获地址
+<view class="center">
+ <view>暂无地址信息</view>
+  <view>请点击底部添加地址信息</view>
+</view>
+ <view class='choose-address-contain'>
+   <button class="choose-address-button" bindtap="chooseAddress">选择收货地址</button>
+ </view>
 </view>

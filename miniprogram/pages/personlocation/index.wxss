@@ -1,0 +1,23 @@
+.wrapper{
+  margin: 0 auto;
+}
+.center{
+  display:inline-block;
+  position: absolute;
+  top: 30%;
+  left: calc(50% - 77px);
+  text-align: center;
+  color: grey;
+  height: auto;
+  font-size: 14px;
+}
+
+.choose-address-button{
+  background: #41695e;
+  color: #fff;
+}
+.choose-address-contain{
+  position: fixed;
+  bottom: 10px;
+  left: calc(50% - 68px);
+}
