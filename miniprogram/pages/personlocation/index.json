@@ -1,5 +1,4 @@
 {
-  "navigationBarTitleText": "个人中心",
-  "usingComponents": {},
-  "backgroundColor": "#eeeeee"
+  "navigationBarTitleText": "地址选择",
+  "usingComponents": {}
 }

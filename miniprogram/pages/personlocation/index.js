@@ -4,12 +4,22 @@ Page({
   data: {
     userInfo:[],
     displayLocation:false,
-    height: app.globalData.screenHeight || '500px'
+    height: '500px'
   },
   pageLifetimes: {
   },
   onLoad: function (options) {
-    this.getUserLocation()
+    this.getUserLocation();
+    this.getScreenHeight();
+  },
+  getScreenHeight() {
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({
+          height: res.windowHeight
+        })
+      }
+    })
   },
   chooseAddress() {
     console.log(app.globalData.userInfo)

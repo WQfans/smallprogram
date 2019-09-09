@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/personlocation/index",
     "pages/personcenter/index",
     "pages/kind/index",
     "pages/index/index",
