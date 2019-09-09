@@ -5,7 +5,11 @@ const db = cloud.database()
 // 云函数入口函数
 
 exports.main = async (event, context) => {
-  return await db.collection('userInfo').get().then(res => {
+  const wxContext = cloud.getWXContext();
+  let OPENID = wxContext.OPENID;
+  return await db.collection('userInfo').where({
+    OPENID: OPENID,
+  }).get().then(res => {
     return res
   })
 }

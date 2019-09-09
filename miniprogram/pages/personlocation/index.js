@@ -2,7 +2,9 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo:[]
+    userInfo:[],
+    displayLocation:false,
+    height: app.globalData.screenHeight || '500px'
   },
   pageLifetimes: {
   },
@@ -46,7 +48,8 @@ Page({
       success: res => {
         console.log(res);
         this.setData({
-          userInfo: res.result.data
+          userInfo: res.result.data,
+          displayLocation:true
         })
       },
       fail: err => {
@@ -60,6 +63,11 @@ Page({
       data: userInfo,
       success: res => {
         console.log(res);
+        wx.showToast({
+          title: '导入成功',
+          icon: 'success',
+          duration: 500
+        })
       },
       fail: err => {
         console.log(err)
