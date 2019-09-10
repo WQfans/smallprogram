@@ -8,17 +8,26 @@
       </view>
     </block>
     <block wx:else>
-      <block wx:for="{{userInfo}}" wx:key='item'>
-       <view class="person-location-wrapper">
-        <view class="person-location">
-          <text class="address">{{item.provinceName}}{{item.cityName}}{{item.provinceName}}{{item.countyName}}{{item.detailInfo}}</text>
-          <view class="name">{{item.userName}} {{item.telNumber}}</view>
-        </view>
-        <view class="edit-button">
-          <image class="edit-button-img" src="./img/edit.png"></image>
-        </view>
-        </view>
-      </block>
+      <view class="all-location-wrapper">
+        <block wx:for="{{userInfo}}" wx:key='item'>
+          <scroll-view class="person-location-wrapper scroll-view_H" scroll-x="{{true}}" scroll-with-animation="{{true}}">
+            <view class="scroll-location">
+              <view class="person-location">
+                <view class='address-name'>
+                  <text class="address">{{item.provinceName}}{{item.cityName}}{{item.provinceName}}{{item.countyName}}{{item.detailInfo}}</text>
+                  <view class="name">{{item.userName}} {{item.telNumber}}</view>
+                </view>
+                <view class="edit-button">
+                  <image class="edit-button-img" src="./img/edit.png"></image>
+                </view>
+              </view>
+              <view class="delete-button">
+                <image class="delete-button-img" src="./img/delete.png"></image>
+              </view>
+            </view>
+          </scroll-view>
+        </block>
+      </view>
     </block>
     <view class='choose-address-contain'>
       <button class="choose-address-button" bindtap="chooseAddress">选择收货地址</button>

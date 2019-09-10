@@ -1,9 +1,10 @@
-.wrapper{
+.wrapper {
   margin: 0 auto;
   background-color: #f6f6f6;
 }
-.center{
-  display:inline-block;
+
+.center {
+  display: inline-block;
   position: absolute;
   top: 30%;
   left: calc(50% - 77px);
@@ -13,44 +14,81 @@
   font-size: 14px;
 }
 
-.choose-address-button{
+.choose-address-button {
   background: #41695e;
   color: #fff;
 }
-.choose-address-contain{
+
+.choose-address-contain {
   position: fixed;
   bottom: 10px;
   left: calc(50% - 68px);
 }
-.person-location-wrapper{
-  background-color: #f6f6f6;
-  padding: 10px 10px 0 10px;
-    display: flex;
-}
-.person-location{
+
+.all-location-wrapper {
   padding: 10px;
-  background: #fff;
-  flex: 6
 }
-.edit-button{
-   background: #fff;
-   flex: 1;
-   padding: 10px 0px 10px 40px;
-   display: flex;
+
+.person-location-wrapper {
+  width: 100%;
+  background-color: #f6f6f6;
+  margin-bottom: 10px;
 }
-.address{
+
+
+.scroll-location{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 800rpx
+}
+
+
+.address {
   font-size: 14px;
   font-weight: bold;
 }
-.name{
+
+.name {
   padding-top: 2px;
   font-size: 12px;
   color: #676767;
 }
-.edit-button-img{
+.address-name{
+  width: 600rpx;
+}
+.person-location {
+  padding: 10px;
+  background: #fff;
+  width: 700rpx;
+  display: flex;
+  align-items: center;
+}
+.edit-button {
+  background: #fff;
+  padding: 10px 0px 10px 40px;
+  width: 100rpx;
+  height: 100%;
+}
+.edit-button-img {
   width: 15px;
   height: 15px;
   display: block;
-  justify-content:center;
-  align-self: center;
+}
+.delete-button{
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  background-color:#000;
+  border-radius: 20px;
+  text-align: center;
+  vertical-align: center;
+}
+.delete-button-img{
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  position: relative;
+  top: -2px;
 }
