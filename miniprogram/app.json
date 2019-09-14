@@ -3,7 +3,9 @@
     "pages/personcenter/index",
     "pages/kind/index",
     "pages/index/index",
-    "pages/shop/index"
+    "pages/shop/index",
+    "pages/personlocation/index",
+    "pages/personlocation/editLocation/editLocation"
   ],
   "tabBar": {
     "list": [

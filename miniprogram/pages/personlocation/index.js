@@ -7,6 +7,7 @@ Page({
     height: '500px',
     calcScrollLeft:{},
     delDialogShow:false,
+    currentId:'',
     buttons: [{ text: '取消' }, { text: '确定' }],
   },
   pageLifetimes: {
@@ -100,19 +101,18 @@ Page({
       userInfo: allInfo
     })
   },
-  delLocation(e){
-    console.log(e)
+  delLocation(id){
     wx.cloud.callFunction({
       name: 'delpersonLocation',
       data:{
-        id: e.currentTarget.dataset.id
+        id: id
       },
       success: res => {
-        console.log(res);
+        console.log(id)
         let newUserInfo = [];
         let userInfo = this.data.userInfo;
         for (let i = 0; i < userInfo.length;i++){
-          if (userInfo._id != e.currentTarget.dataset.id){
+          if (userInfo[i]._id != id){
             newUserInfo.push(userInfo[i])
           }
         }
@@ -125,17 +125,26 @@ Page({
       }
     })
   },
-  delDialogOnShow: function () {
+  delDialogOnShow(e) {
+    console.log(e)
     this.setData({
-      delDialogShow: true
+      delDialogShow: true,
+      currentId: e.currentTarget.dataset.id
     })
   },
   tapDelDialogButton(e){
+    console.log(e)
     this.setData({
       delDialogShow:false
     })
     if(e.detail.index==1){
-      this.delLocation(e)
+      let id = this.data.currentId
+      this.delLocation(id)
     }
+  },
+  jumpToEditLocation(){
+    wx.navigateTo({
+      url: './editLocation/editLocation',
+    })
   }
 });

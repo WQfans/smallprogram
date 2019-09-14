@@ -18,7 +18,7 @@
                   <view class="name">{{item.userName}} {{item.telNumber}}</view>
                 </view>
                 <view class="edit-button">
-                  <image class="edit-button-img" src="./img/edit.png"></image>
+                  <image class="edit-button-img" bindtap="jumpToEditLocation" src="./img/edit.png"></image>
                 </view>
               </view>
               <view class="delete-button">
