@@ -13,7 +13,7 @@
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "/image/shouye.png",
-      "selectedIconPath": "/image/shouye-2.png"
+        "selectedIconPath": "/image/shouye-2.png"
       },
       {
         "pagePath": "pages/kind/index",
@@ -30,7 +30,7 @@
     ]
   },
   "window": {
-    "backgroundColor":"#eeeeee",
+    "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",

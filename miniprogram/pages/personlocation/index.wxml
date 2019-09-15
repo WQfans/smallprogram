@@ -23,7 +23,7 @@
               </view>
               <view class="delete-button">
               <image class="delete-button-img" src="./img/delete.png" bindtap="delDialogOnShow" data-id="{{item._id}}"></image>
-                <mp-dialog title="test" show="{{delDialogShow}}" data-id="{{item._id}}" bindbuttontap="tapDelDialogButton" buttons="{{buttons}}">
+                <mp-dialog title="" show="{{delDialogShow}}" data-id="{{item._id}}" bindbuttontap="tapDelDialogButton" buttons="{{buttons}}">
                   <view>确认删除该地址吗</view>
                 </mp-dialog>
               </view>
